@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>World Wise Immigration</title>
+</head>
+
+<body>
+
+<h1>World Wise Immigration</h1>
+
+<h2>About Us</h2>
+<p>
+We assist applicants with international job and study application guidance.
+</p>
+
+<h2>Contact Us</h2>
+<p>
+WhatsApp: +254789748181<br>
+Email: info@worldwiseimmigration.com
+</p>
+
+<hr>
+
+<h2>Start Your Application</h2>
+
+<label>Choose Application Type</label>
+
+<select>
+<option>Select</option>
+<option>Work Abroad</option>
+<option>Study Abroad</option>
+</select>
+
+
+<h3>Personal Information</h3>
+
+<input placeholder="Full Name">
+
+<input placeholder="Date of Birth">
+
+<input placeholder="Nationality">
+
+<input placeholder="Country of Residence">
+
+<input placeholder="Phone Number">
+
+<input placeholder="Email Address">
+
+
+<h3>Passport</h3>
+
+<p>Do you have a valid passport?</p>
+
+<input type="radio" name="passport"> Yes
+<input type="radio" name="passport"> No
+
+
+<h3>Work Application</h3>
+
+<select>
+<option>Select Job</option>
+<option>Cleaner</option>
+<option>Warehouse Assistant</option>
+<option>Construction Worker</option>
+<option>Factory Worker</option>
+<option>Driver</option>
+<option>Caregiver</option>
+<option>Security Guard</option>
+<option>Hospitality Worker</option>
+</select>
+
+<textarea placeholder="Work Experience"></textarea>
+
+
+<h3>Study Abroad Application</h3>
+
+<select>
+<option>Select Study Country</option>
+<option>USA</option>
+<option>Luxembourg</option>
+<option>Canada</option>
+<option>United Kingdom</option>
+<option>Australia</option>
+</select>
+
+
+<select>
+<option>Select Institution</option>
+<option>Harvard University</option>
+<option>Stanford University</option>
+<option>MIT</option>
+<option>New York University</option>
+<option>University of California</option>
+</select>
+
+
+<input placeholder="Course Interested In">
+
+<select>
+<option>Level of Study</option>
+<option>Diploma</option>
+<option>Bachelor Degree</option>
+<option>Master Degree</option>
+<option>PhD</option>
+</select>
+
+
+<h3>Documents</h3>
+
+<p>Upload CV</p>
+<input type="file">
+
+<p>Upload Passport (if available)</p>
+<input type="file">
+
+<p>Upload Certificates (if available)</p>
+<input type="file">
+
+
+<br><br>
+
+<input type="checkbox">
+I agree that my information will be used for application processing.
+
+
+<br><br>
+
+<button>
+Submit Application
+</button>
+
+
+</body>
+</html>
