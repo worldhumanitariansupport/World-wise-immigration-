@@ -1,134 +1,1004 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>World Wise Immigration</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>World Wise Immigration Agency</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #172033;
+      background: #f7f9fc;
+      line-height: 1.6;
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255,255,255,0.96);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+      padding: 15px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: bold;
+      color: #123b70;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #172033;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #1769aa;
+    }
+
+    /* HOME */
+    .hero {
+      min-height: 100vh;
+      padding: 150px 8% 100px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(rgba(7, 28, 58, 0.63), rgba(7, 28, 58, 0.63)),
+        url("https://images.unsplash.com/photo-1521292270410-a8c4d716d518?auto=format&fit=crop&w=2000&q=85")
+        center/cover no-repeat;
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 720px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1.08;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      max-width: 650px;
+      margin-bottom: 35px;
+      color: #eef5ff;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 28px;
+      border-radius: 7px;
+      background: #1769aa;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn:hover {
+      background: #0d568f;
+    }
+
+    .btn-light {
+      background: white;
+      color: #123b70;
+      margin-left: 10px;
+    }
+
+    /* GENERAL SECTIONS */
+    section {
+      padding: 100px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-title h2 {
+      font-size: 40px;
+      color: #123b70;
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      color: #687386;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    /* ABOUT */
+    .about {
+      background: white;
+    }
+
+    .about-grid {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-image {
+      min-height: 430px;
+      border-radius: 15px;
+      background:
+        linear-gradient(rgba(10,45,85,.25), rgba(10,45,85,.25)),
+        url("https://images.unsplash.com/photo-1494587416117-f102a2ac0a8d?auto=format&fit=crop&w=1200&q=80")
+        center/cover;
+    }
+
+    .about-text h3 {
+      font-size: 30px;
+      color: #123b70;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      margin-bottom: 18px;
+      color: #566174;
+    }
+
+    /* SERVICES */
+    .services {
+      background: #f7f9fc;
+    }
+
+    .cards {
+      max-width: 1150px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 35px 28px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.06);
+    }
+
+    .card h3 {
+      color: #123b70;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #687386;
+    }
+
+    /* JOBS */
+    .jobs {
+      background: white;
+    }
+
+    .application-box {
+      max-width: 850px;
+      margin: auto;
+      background: #fff;
+      padding: 45px;
+      border-radius: 15px;
+      box-shadow: 0 10px 40px rgba(0,0,0,.08);
+    }
+
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #25334a;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ccd4df;
+      border-radius: 7px;
+      font-size: 16px;
+      outline: none;
+      background: white;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #1769aa;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 25px;
+      margin-top: 8px;
+    }
+
+    .radio-option {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-weight: normal;
+    }
+
+    .radio-option input {
+      width: auto;
+    }
+
+    /* SEARCHABLE JOB SELECT */
+    .job-selector {
+      position: relative;
+    }
+
+    .job-display {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ccd4df;
+      border-radius: 7px;
+      background: white;
+      cursor: pointer;
+      color: #667085;
+    }
+
+    .job-display.selected {
+      color: #172033;
+    }
+
+    .job-menu {
+      display: none;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: calc(100% + 5px);
+      z-index: 50;
+      background: white;
+      border: 1px solid #ccd4df;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.12);
+      overflow: hidden;
+    }
+
+    .job-search {
+      border: none;
+      border-bottom: 1px solid #ddd;
+      border-radius: 0;
+    }
+
+    .job-list {
+      max-height: 280px;
+      overflow-y: auto;
+    }
+
+    .job-option {
+      padding: 12px 15px;
+      cursor: pointer;
+    }
+
+    .job-option:hover {
+      background: #eef6ff;
+    }
+
+    .submit-btn {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    /* CONTACT */
+    .contact {
+      background: #123b70;
+      color: white;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    .contact p {
+      margin-bottom: 10px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0b2749;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      font-size: 14px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 800px) {
+      nav {
+        padding: 14px 5%;
+      }
+
+      nav ul {
+        gap: 12px;
+      }
+
+      nav a {
+        font-size: 14px;
+      }
+
+      .logo {
+        font-size: 16px;
+      }
+
+      .about-grid,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-left: 6%;
+        padding-right: 6%;
+      }
+
+      section {
+        padding: 75px 6%;
+      }
+
+      .application-box {
+        padding: 25px 20px;
+      }
+
+      .btn-light {
+        margin-left: 0;
+        margin-top: 10px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<h1>World Wise Immigration</h1>
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">WORLD WISE IMMIGRATION</div>
 
-<h2>About Us</h2>
-<p>
-We assist applicants with international job and study application guidance.
-</p>
-
-<h2>Contact Us</h2>
-<p>
-WhatsApp: +254789748181<br>
-Email: info@worldwiseimmigration.com
-</p>
-
-<hr>
-
-<h2>Start Your Application</h2>
-
-<label>Choose Application Type</label>
-
-<select>
-<option>Select</option>
-<option>Work Abroad</option>
-<option>Study Abroad</option>
-</select>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#jobs">Jobs</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
 
-<h3>Personal Information</h3>
+  <!-- HOME -->
+  <section class="hero" id="home">
+    <div class="hero-content">
 
-<input placeholder="Full Name">
+      <h1>Your Gateway to Global Opportunities</h1>
 
-<input placeholder="Date of Birth">
+      <p>
+        World Wise Immigration Agency connects applicants
+        with international employment opportunities and
+        provides guidance throughout the application process.
+      </p>
 
-<input placeholder="Nationality">
+      <a href="#jobs" class="btn">Explore Jobs</a>
+      <a href="#about" class="btn btn-light">About Us</a>
 
-<input placeholder="Country of Residence">
-
-<input placeholder="Phone Number">
-
-<input placeholder="Email Address">
-
-
-<h3>Passport</h3>
-
-<p>Do you have a valid passport?</p>
-
-<input type="radio" name="passport"> Yes
-<input type="radio" name="passport"> No
+    </div>
+  </section>
 
 
-<h3>Work Application</h3>
+  <!-- ABOUT -->
+  <section class="about" id="about">
 
-<select>
-<option>Select Job</option>
-<option>Cleaner</option>
-<option>Warehouse Assistant</option>
-<option>Construction Worker</option>
-<option>Factory Worker</option>
-<option>Driver</option>
-<option>Caregiver</option>
-<option>Security Guard</option>
-<option>Hospitality Worker</option>
-</select>
+    <div class="section-title">
+      <h2>About World Wise Immigration</h2>
+      <p>
+        Helping people discover international opportunities
+        and take the next step toward their career goals.
+      </p>
+    </div>
 
-<textarea placeholder="Work Experience"></textarea>
+    <div class="about-grid">
 
+      <div class="about-image"></div>
 
-<h3>Study Abroad Application</h3>
+      <div class="about-text">
 
-<select>
-<option>Select Study Country</option>
-<option>USA</option>
-<option>Luxembourg</option>
-<option>Canada</option>
-<option>United Kingdom</option>
-<option>Australia</option>
-</select>
+        <h3>Connecting People With Opportunities</h3>
 
+        <p>
+          World Wise Immigration Agency is focused on helping
+          applicants explore employment opportunities abroad.
+        </p>
 
-<select>
-<option>Select Institution</option>
-<option>Harvard University</option>
-<option>Stanford University</option>
-<option>MIT</option>
-<option>New York University</option>
-<option>University of California</option>
-</select>
+        <p>
+          Our platform makes it simple for applicants to view
+          available positions, provide their information and
+          submit an application for consideration.
+        </p>
 
+        <p>
+          Browse our available opportunities below and find
+          a position that matches your skills and experience.
+        </p>
 
-<input placeholder="Course Interested In">
+      </div>
 
-<select>
-<option>Level of Study</option>
-<option>Diploma</option>
-<option>Bachelor Degree</option>
-<option>Master Degree</option>
-<option>PhD</option>
-</select>
+    </div>
+
+  </section>
 
 
-<h3>Documents</h3>
+  <!-- SERVICES -->
+  <section class="services">
 
-<p>Upload CV</p>
-<input type="file">
+    <div class="section-title">
+      <h2>Our Services</h2>
+      <p>Professional support for applicants seeking international opportunities.</p>
+    </div>
 
-<p>Upload Passport (if available)</p>
-<input type="file">
+    <div class="cards">
 
-<p>Upload Certificates (if available)</p>
-<input type="file">
+      <div class="card">
+        <h3>Job Opportunities</h3>
+        <p>
+          Explore a wide range of international employment
+          opportunities across different industries.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Application Support</h3>
+        <p>
+          Submit your details through our simple online
+          application process.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Immigration Guidance</h3>
+        <p>
+          Receive guidance throughout the relevant
+          immigration and employment process.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
 
 
-<br><br>
+  <!-- JOB APPLICATION -->
+  <section class="jobs" id="jobs">
 
-<input type="checkbox">
-I agree that my information will be used for application processing.
+    <div class="section-title">
+
+      <h2>Job Application</h2>
+
+      <p>
+        Select a job and complete your application details.
+      </p>
+
+    </div>
 
 
-<br><br>
+    <div class="application-box">
 
-<button>
-Submit Application
-</button>
+      <form id="applicationForm">
+
+        <!-- JOB -->
+        <div class="form-group">
+
+          <label>Select Job *</label>
+
+          <div class="job-selector">
+
+            <div
+              class="job-display"
+              id="jobDisplay"
+              onclick="toggleJobMenu()"
+            >
+              Select Job
+            </div>
+
+            <div class="job-menu" id="jobMenu">
+
+              <input
+                type="text"
+                class="job-search"
+                id="jobSearch"
+                placeholder="Search jobs..."
+                oninput="filterJobs()"
+              >
+
+              <div class="job-list" id="jobList"></div>
+
+            </div>
+
+          </div>
+
+          <input type="hidden" id="selectedJob" required>
+
+        </div>
 
 
-</body>
-</html>
+        <!-- FULL NAME -->
+        <div class="form-group">
+          <label for="name">Full Name *</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter your full name"
+            required
+          >
+        </div>
+
+
+        <!-- PHONE -->
+        <div class="form-group">
+          <label for="phone">Phone / WhatsApp Number *</label>
+          <input
+            type="tel"
+            id="phone"
+            placeholder="+254..."
+            required
+          >
+        </div>
+
+
+        <!-- EMAIL -->
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+          >
+        </div>
+
+
+        <!-- COUNTRY -->
+        <div class="form-group">
+          <label for="country">Country of Residence *</label>
+          <input
+            type="text"
+            id="country"
+            placeholder="Enter your country"
+            required
+          >
+        </div>
+
+
+        <!-- NATIONALITY -->
+        <div class="form-group">
+          <label for="nationality">Nationality</label>
+          <input
+            type="text"
+            id="nationality"
+            placeholder="Enter your nationality"
+          >
+        </div>
+
+
+        <!-- DATE OF BIRTH -->
+        <div class="form-group">
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob">
+        </div>
+
+
+        <!-- EDUCATION -->
+        <div class="form-group">
+
+          <label for="education">Highest Education Level</label>
+
+          <select id="education">
+
+            <option value="">Select education level</option>
+            <option>Primary</option>
+            <option>Secondary</option>
+            <option>Certificate</option>
+            <option>Diploma</option>
+            <option>Degree</option>
+            <option>Masters</option>
+            <option>PhD</option>
+
+          </select>
+
+        </div>
+
+
+        <!-- EXPERIENCE -->
+        <div class="form-group">
+
+          <label for="experience">Work Experience</label>
+
+          <select id="experience">
+
+            <option value="">Select experience</option>
+            <option>No experience</option>
+            <option>Less than 1 year</option>
+            <option>1–2 years</option>
+            <option>3–5 years</option>
+            <option>6–10 years</option>
+            <option>More than 10 years</option>
+
+          </select>
+
+        </div>
+
+
+        <!-- CURRENT OCCUPATION -->
+        <div class="form-group">
+
+          <label for="occupation">Current Occupation</label>
+
+          <input
+            type="text"
+            id="occupation"
+            placeholder="What do you currently do?"
+          >
+
+        </div>
+
+
+        <!-- CV -->
+        <div class="form-group">
+
+          <label>Do you have a CV? *</label>
+
+          <div class="radio-group">
+
+            <label class="radio-option">
+              <input type="radio" name="cv" value="Yes" required>
+              Yes
+            </label>
+
+            <label class="radio-option">
+              <input type="radio" name="cv" value="No">
+              No
+            </label>
+
+          </div>
+
+        </div>
+
+
+        <!-- PASSPORT -->
+        <div class="form-group">
+
+          <label>Do you have a valid passport? *</label>
+
+          <div class="radio-group">
+
+            <label class="radio-option">
+              <input type="radio" name="passport" value="Yes" required>
+              Yes
+            </label>
+
+            <label class="radio-option">
+              <input type="radio" name="passport" value="No">
+              No
+            </label>
+
+          </div>
+
+        </div>
+
+
+        <!-- ADDITIONAL INFORMATION -->
+        <div class="form-group">
+
+          <label for="message">Additional Information</label>
+
+          <textarea
+            id="message"
+            placeholder="Tell us anything else you would like us to know..."
+          ></textarea>
+
+        </div>
+
+
+        <!-- SUBMIT -->
+        <button type="submit" class="btn submit-btn">
+          Submit Application
+        </button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+
+    <h2>Contact World Wise Immigration</h2>
+
+    <p>
+      For enquiries and application assistance, contact us.
+    </p>
+
+    <p>
+      WhatsApp: +254 789 748 181
+    </p>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    © 2026 World Wise Immigration Agency.
+    All rights reserved.
+
+  </footer>
+
+
+  <script>
+
+    /* --------------------------------
+       JOB LIST - 120+ JOBS
+    -------------------------------- */
+
+    const jobs = [
+
+      "General Worker",
+      "Warehouse Worker",
+      "Warehouse Operative",
+      "Warehouse Assistant",
+      "Picker and Packer",
+      "Forklift Operator",
+      "Factory Worker",
+      "Factory Operative",
+      "Production Worker",
+      "Production Operator",
+      "Machine Operator",
+      "Machine Technician",
+      "CNC Operator",
+      "Assembly Worker",
+      "Packaging Worker",
+      "Quality Control Worker",
+      "Maintenance Worker",
+      "Maintenance Technician",
+      "Mechanical Technician",
+      "Electrical Technician",
+      "Electrician",
+      "Industrial Electrician",
+      "Automotive Electrician",
+      "Plumber",
+      "Pipe Fitter",
+      "Welder",
+      "MIG Welder",
+      "TIG Welder",
+      "Fabricator",
+      "Metal Worker",
+      "Carpenter",
+      "Furniture Carpenter",
+      "Construction Worker",
+      "Construction Labourer",
+      "Bricklayer",
+      "Mason",
+      "Concrete Worker",
+      "Steel Fixer",
+      "Scaffolder",
+      "Painter",
+      "Tiler",
+      "Roofer",
+      "Drywall Installer",
+      "Glazier",
+      "Heavy Equipment Operator",
+      "Excavator Operator",
+      "Crane Operator",
+      "Bulldozer Operator",
+      "Road Construction Worker",
+
+      "Truck Driver",
+      "Heavy Truck Driver",
+      "Bus Driver",
+      "Delivery Driver",
+      "Van Driver",
+      "Taxi Driver",
+      "Forklift Driver",
+      "Trailer Driver",
+      "HGV Driver",
+      "LGV Driver",
+      "Courier Driver",
+      "Driver Assistant",
+
+      "Farm Worker",
+      "Agricultural Worker",
+      "Fruit Picker",
+      "Vegetable Picker",
+      "Greenhouse Worker",
+      "Farm Assistant",
+      "Dairy Farm Worker",
+      "Poultry Farm Worker",
+      "Livestock Worker",
+      "Tractor Operator",
+      "Agricultural Machine Operator",
+      "Gardener",
+      "Landscaping Worker",
+      "Nursery Worker",
+
+      "Cleaner",
+      "Housekeeper",
+      "Hotel Cleaner",
+      "Office Cleaner",
+      "Industrial Cleaner",
+      "Laundry Worker",
+      "Janitor",
+      "Room Attendant",
+
+      "Chef",
+      "Cook",
+      "Assistant Chef",
+      "Kitchen Assistant",
+      "Kitchen Porter",
+      "Baker",
+      "Pastry Chef",
+      "Butcher",
+      "Waiter",
+      "Waitress",
+      "Restaurant Worker",
+      "Restaurant Assistant",
+      "Hotel Receptionist",
+      "Hotel Worker",
+      "Hospitality Worker",
+
+      "Caregiver",
+      "Care Assistant",
+      "Healthcare Assistant",
+      "Nursing Assistant",
+      "Support Worker",
+      "Elderly Care Worker",
+      "Home Care Worker",
+      "Nurse",
+      "Registered Nurse",
+      "Medical Assistant",
+      "Pharmacy Assistant",
+
+      "Security Guard",
+      "Security Officer",
+      "Security Supervisor",
+      "CCTV Operator",
+
+      "Office Assistant",
+      "Administrative Assistant",
+      "Receptionist",
+      "Customer Service Representative",
+      "Call Centre Agent",
+      "Data Entry Clerk",
+      "Sales Assistant",
+      "Sales Representative",
+      "Retail Worker",
+      "Shop Assistant",
+      "Cashier",
+      "Storekeeper",
+      "Stock Controller",
+      "Inventory Clerk",
+
+      "IT Support Technician",
+      "Computer Technician",
+      "Web Developer",
+      "Software Developer",
+      "Graphic Designer",
+      "Digital Marketing Assistant",
+
+      "Mechanic",
+      "Auto Mechanic",
+      "Diesel Mechanic",
+      "Motor Vehicle Technician",
+      "Heavy Vehicle Mechanic",
+      "Tyre Technician",
+
+      "HVAC Technician",
+      "Refrigeration Technician",
+      "Solar Technician",
+      "Solar Installer",
+
+      "Tailor",
+      "Seamstress",
+      "Textile Worker",
+      "Garment Worker",
+      "Sewing Machine Operator",
+
+      "Fish Processing Worker",
+      "Food Processing Worker",
+      "Meat Processing Worker",
+      "Bakery Worker",
+
+      "Construction Supervisor",
+      "Site Supervisor",
+      "Site Manager",
+      "Project Assistant",
+
+      "Graphic Designer",
+      "Photographer",
+      "Content Creator",
+
+      "Teacher",
+      "Teaching Assistant",
+      "Childcare Worker",
+      "Nursery Assistant",
+
+      "Logistics Assistant",
+      "Logistics Coordinator",
+      "Transport Coordinator",
+      "Dispatch Clerk",
+      "Shipping Assistant",
+
+      "Other"
+    ];
+
+
+    /* --------------------------------
+       DISPLAY JOBS
+    -------------------------------- */
+
+    const jobList = document.getElementById("jobList");
+
+    function displayJobs(list) {
+
+      jobList.innerHTML = "";
+
+      if (list.length === 0) {
+
+        jobList.innerHTML =
+          '<div class="job-option">No jobs found</div>';
+
+        return;
+      }
+
+      list.forEach(function(job) {
+
+        const option = document.createElement("div");
+
+        option.className = "job-option";
+
+        option.textContent = job;
+
+        option.onclick = function() {
+
+          selectJob(job);
+
+    
